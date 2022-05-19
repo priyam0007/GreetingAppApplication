@@ -1,19 +1,27 @@
 package com.example.greetingappapplication.controller;
-
+/*
+ *
+ */
 import com.example.greetingappapplication.service.GreetingService;
 import java.util.concurrent.atomic.AtomicLong;
 import com.example.greetingappapplication.model.Greeting;
+import com.example.greetingappapplication.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
+/*
+ * create a class name as GreetingController
+ */
 public class GreetingController {
     private static final String template = "Hello %s";
     private static AtomicLong counter = new AtomicLong();
 
     @Autowired
     GreetingService greetingService;
+
     @GetMapping("/getGreeting")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
@@ -29,6 +37,15 @@ public class GreetingController {
     @GetMapping("/getMessage")
     public ResponseEntity<String> getMessage() {
         return new ResponseEntity<String>(greetingService.getMessage(), HttpStatus.OK);
+    }
+    @GetMapping("/getGreetingMessage")
+    public ResponseEntity<String> getGreetingMessage(@RequestParam(value = "firstName", defaultValue = "World") String firstName, @RequestParam(value = "lastName", defaultValue = "") String lastName) {
+        return new ResponseEntity<String>(greetingService.getGreetingMessage(firstName, lastName), HttpStatus.OK);
+    }
+
+    @PostMapping("/post")
+    public ResponseEntity<String> getGreeting(@RequestBody User user) {
+        return new ResponseEntity<String>(greetingService.postMessage(user.getfirstName(), user.getlastName() ), HttpStatus.OK);
     }
 }
 

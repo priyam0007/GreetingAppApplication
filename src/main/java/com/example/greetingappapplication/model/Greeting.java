@@ -6,6 +6,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Greeting {
+
     @Id
     @GeneratedValue
     private Integer id;

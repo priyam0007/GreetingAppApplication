@@ -20,14 +20,11 @@ public class User {
     public User() {
 
     }
-
     public User(User user) {
         this.id = user.id;
         this.firstName = user.firstName;
         this.lastName = user.lastName;
     }
-
-
     public String getfirstName() {
         return firstName;
     }

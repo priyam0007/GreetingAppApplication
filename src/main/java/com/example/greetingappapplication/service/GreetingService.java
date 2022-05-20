@@ -6,6 +6,8 @@ import com.example.greetingappapplication.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GreetingService {
     private static String template = "Hello %s";
@@ -29,9 +31,13 @@ public class GreetingService {
         repository.save(newGreeting);
         return newGreeting;
     }
+
     public String getData(Integer id) {
         Greeting newGreeting = repository.getById(id);
         return newGreeting.getContent();
     }
-}
 
+    public List<Greeting> getAllData() {
+        return repository.findAll();
+    }
+}

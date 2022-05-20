@@ -12,13 +12,13 @@ public class User {
     private String firstName;
     private String lastName;
 
-    public User() {
-
-    }
-
     public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public User() {
+
     }
 
     public User(User user) {
@@ -26,11 +26,13 @@ public class User {
         this.firstName = user.firstName;
         this.lastName = user.lastName;
     }
+
+
     public String getfirstName() {
         return firstName;
     }
 
-    public void setfirstName(String firstName) {
+    public void setfName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -42,5 +44,3 @@ public class User {
         this.lastName = lastName;
     }
 }
-
-

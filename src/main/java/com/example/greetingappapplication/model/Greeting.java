@@ -11,9 +11,11 @@ public class Greeting {
     private Integer id;
     private String content;
 
+    public Greeting() {
+
+    }
+
     public Greeting(String content) {
-        super();
-        this.id = id;
         this.content = content;
     }
 
@@ -22,8 +24,10 @@ public class Greeting {
         this.content = greeting.content;
     }
 
-    public Greeting() {
-
+    public Greeting(Integer id, String content) {
+        super();
+        this.id = id;
+        this.content = content;
     }
 
     public Integer getId() {
@@ -37,7 +41,7 @@ public class Greeting {
     public String getContent() {
         return content;
     }
-    
+
     public void setContent(String content) {
         this.content = content;
     }
